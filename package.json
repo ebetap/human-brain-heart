@@ -1,12 +1,12 @@
 {
-  "name": "ml-library",
+  "name": "hooman-brain-heart",
   "version": "1.0.0",
   "description": "A JavaScript library for supervised and unsupervised learning with an ethical framework",
   "main": "src/index.js",
   "scripts": {
     "test": "mocha"
   },
-  "author": "Your Name",
+  "author": "Beta Priyoko",
   "license": "MIT",
   "dependencies": {
     "ml-cart": "^2.0.2",
