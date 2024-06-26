@@ -1,4 +1,5 @@
 // src/index.js
+
 import { LinearRegression } from './supervised/linearRegression.js';
 import { LogisticRegression } from './supervised/logisticRegression.js';
 import { DecisionTree } from './supervised/decisionTree.js';
@@ -8,6 +9,8 @@ import { HierarchicalClustering } from './unsupervised/hierarchicalClustering.js
 import { PCA } from './unsupervised/pca.js';
 import { math } from './utils/mathUtils.js';
 import { dataProcessing } from './utils/dataProcessing.js';
+import { EthicsFramework } from './ethics/ethicsFramework.js';
+import { Rule, noHarmRule, privacyRule, fairnessRule } from './ethics/ruleChecker.js';
 
 export {
     LinearRegression,
@@ -19,4 +22,9 @@ export {
     PCA,
     math,
     dataProcessing,
+    EthicsFramework,
+    Rule,
+    noHarmRule,
+    privacyRule,
+    fairnessRule
 };
