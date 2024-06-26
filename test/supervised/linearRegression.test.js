@@ -10,3 +10,9 @@ model.fit(X, y);
 const predictions = model.predict(X);
 
 console.log('Predictions:', predictions);
+
+assert.closeTo(predictions[0], 3, 0.1);
+assert.closeTo(predictions[1], 5, 0.1);
+assert.closeTo(predictions[2], 7, 0.1);
+assert.closeTo(predictions[3], 11, 0.1);
+assert.closeTo(predictions[4], 15, 0.1);
