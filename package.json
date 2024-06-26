@@ -1,1 +1,24 @@
 
+{
+  "name": "human-brain-heart",
+  "version": "1.0.0",
+  "description": "A JavaScript library for supervised and unsupervised learning",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Beta 'Mahdi' Priyoko",
+  "license": "MIT",
+  "dependencies": {
+    "ml-cart": "^2.0.2",
+    "ml-hclust": "^2.2.1",
+    "ml-kmeans": "^4.0.0",
+    "ml-matrix": "^6.8.0",
+    "ml-pca": "^4.1.0",
+    "ml-svm": "^1.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3"
+  }
+}
