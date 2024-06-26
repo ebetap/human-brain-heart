@@ -1,30 +1,33 @@
 // src/index.js
 
-import { LinearRegression } from './supervised/linearRegression.js';
-import { LogisticRegression } from './supervised/logisticRegression.js';
-import { DecisionTree } from './supervised/decisionTree.js';
-import { SVM } from './supervised/svm.js';
-import { KMeans } from './unsupervised/kMeans.js';
-import { HierarchicalClustering } from './unsupervised/hierarchicalClustering.js';
-import { PCA } from './unsupervised/pca.js';
-import { math } from './utils/mathUtils.js';
-import { dataProcessing } from './utils/dataProcessing.js';
-import { EthicsFramework } from './ethics/ethicsFramework.js';
-import { Rule, noHarmRule, privacyRule, fairnessRule } from './ethics/ruleChecker.js';
+import { createLogger, format, transports } from 'winston';
+import { LinearRegression } from './supervised/linearRegression';
+import { ModelSerialization } from './utils/modelSerialization';
 
-export {
-    LinearRegression,
-    LogisticRegression,
-    DecisionTree,
-    SVM,
-    KMeans,
-    HierarchicalClustering,
-    PCA,
-    math,
-    dataProcessing,
-    EthicsFramework,
-    Rule,
-    noHarmRule,
-    privacyRule,
-    fairnessRule
-};
+const logger = createLogger({
+    level: 'info',
+    format: format.combine(
+        format.colorize(),
+        format.timestamp(),
+        format.printf(({ timestamp, level, message }) => `${timestamp} ${level}: ${message}`)
+    ),
+    transports: [new transports.Console()],
+});
+
+logger.info('ML Library started.');
+
+// Example usage:
+const model = new LinearRegression();
+const data = [[1, 2], [2, 3], [3, 4]];
+const target = [3, 4, 5];
+
+try {
+    model.fit(data, target);
+    const predictions = model.predict([[4, 5]]);
+    logger.info(`Predictions: ${predictions}`);
+} catch (error) {
+    logger.error(`Error occurred: ${error.message}`);
+}
+
+const serializer = new ModelSerialization();
+serializer.serialize(model, 'model.json');
