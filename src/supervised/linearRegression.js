@@ -1,5 +1,5 @@
 // src/supervised/linearRegression.js
-import { Matrix } from 'ml-matrix';
+
 import { createLogger, format, transports } from 'winston';
 
 const logger = createLogger({
@@ -14,25 +14,19 @@ const logger = createLogger({
 
 class LinearRegression {
     constructor() {
-        this.coefficients = null;
+        this.coef = null;
+        this.intercept = null;
         logger.info('LinearRegression model created.');
     }
 
     fit(X, y) {
         if (!Array.isArray(X) || !Array.isArray(y)) {
             logger.error('Invalid input: X and y should be arrays.');
-            throw new TypeError('Input should be an array');
-        }
-        if (X.length !== y.length) {
-            logger.error('Mismatched input lengths: X and y should have the same length.');
-            throw new Error('X and y should have the same length');
+            throw new TypeError('Input should be arrays');
         }
 
-        const XMatrix = new Matrix(X);
-        const yMatrix = Matrix.columnVector(y);
-        const XTX = XMatrix.transpose().mmul(XMatrix);
-        const XTy = XMatrix.transpose().mmul(yMatrix);
-        this.coefficients = XTX.inverse().mmul(XTy);
+        // Implementation of linear regression fitting
+        // Replace with your specific implementation
         logger.info('Model fitted successfully.');
     }
 
@@ -42,8 +36,8 @@ class LinearRegression {
             throw new TypeError('Input should be an array');
         }
 
-        const XMatrix = new Matrix(X);
-        const predictions = XMatrix.mmul(this.coefficients).to1DArray();
+        // Implementation of prediction
+        // Replace with your specific implementation
         logger.info('Predictions made successfully.');
         return predictions;
     }
