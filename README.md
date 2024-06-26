@@ -1,9 +1,13 @@
 # Human Brain Heart Library
 
-A JavaScript library for supervised and unsupervised learning.
+A JavaScript library for machine learning with ethics/adab/etika
 
-## Installation
+## Features
 
-```bash
-npm install
-```
+- Supervised Learning
+- Unsupervised Learning
+- Reinforcement Learning
+- Ethical AI Framework
+- Explainable AI (XAI)
+- Advanced Feature Engineering
+- Model Serialization
